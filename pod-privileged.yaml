@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multitool-privileged
+spec:
+  hostNetwork: true
+  hostPID: true
+  hostIPC: true
+  containers:
+    - image: praqma/network-multitool
+      name: multitool-privileged
+      resources: {}
+      volumeMounts:
+        - mountPath: /host
+          name: noderoot
+  restartPolicy: Never
+  volumes:
+    - name: noderoot
+      hostPath:
+        path: /
