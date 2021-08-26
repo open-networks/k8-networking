@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: multitool
+  namespace: network-testing
+spec:
+  rules:
+    - host: multitool.intern
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: multitool
+                port:
+                  number: 80

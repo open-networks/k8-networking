@@ -8,6 +8,8 @@ spec:
   hostIPC: true
   containers:
     - image: praqma/network-multitool
+      securityContext:
+        privileged: true
       name: multitool-privileged
       resources: {}
       volumeMounts:
